@@ -1,3 +1,4 @@
+import 'package:camera/camera.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -5,12 +6,12 @@ import 'package:flutter_app/controllers/navigation_controller.dart';
 import 'package:flutter_app/controllers/providers/connection_provider.dart';
 import 'package:flutter_app/controllers/providers/user_provider.dart';
 import 'package:provider/provider.dart';
-
+List<CameraDescription> cameras = [];
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
-
+  cameras = await availableCameras();
   runApp(MyApp());
 }
 

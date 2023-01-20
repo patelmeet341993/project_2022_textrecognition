@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/controllers/providers/user_provider.dart';
+import 'package:flutter_app/screens/home_screen/screens/text_detector_view.dart';
 import 'package:flutter_app/utils/SizeConfig.dart';
 import 'package:flutter_app/utils/my_print.dart';
 import 'package:flutter_app/utils/styles.dart';
 import 'package:provider/provider.dart';
 
-import 'home_screen.dart';
 import 'user_profile_screen.dart';
 
 class MainPage extends StatefulWidget {
@@ -112,7 +112,7 @@ class _MainPageState extends State<MainPage> with SingleTickerProviderStateMixin
   }
 
   Widget getHome() {
-    postListWidget ??= const HomeScreen();
+    postListWidget ??=  TextRecognizerView();
 
     return postListWidget!;
   }
