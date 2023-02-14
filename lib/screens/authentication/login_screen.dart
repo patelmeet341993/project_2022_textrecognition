@@ -303,7 +303,7 @@ class _LoginScreenState extends State<LoginScreen> {
         borderRadius:
         BorderRadius.all(Radius.circular(MySize.size48!)),
       ),
-      child: FlatButton(
+      child: MaterialButton(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(MySize.size16!)),
         color: Styles.primaryColor,
         highlightColor: Styles.primaryColor,
