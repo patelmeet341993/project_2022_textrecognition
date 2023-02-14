@@ -6,6 +6,7 @@ import 'package:flutter_app/utils/my_print.dart';
 import 'package:flutter_app/utils/styles.dart';
 import 'package:provider/provider.dart';
 
+import 'object_detector_view.dart';
 import 'user_profile_screen.dart';
 
 class MainPage extends StatefulWidget {
@@ -21,7 +22,7 @@ class _MainPageState extends State<MainPage> with SingleTickerProviderStateMixin
 
   late TabController _tabController;
 
-  Widget? postListWidget, profileWidget;
+  Widget? postListWidget, profileWidget,objectWidget;
 
   bool isNotificationSet=true;
 
@@ -69,7 +70,7 @@ class _MainPageState extends State<MainPage> with SingleTickerProviderStateMixin
     super.initState();
     MyPrint.printOnConsole("Main Page INIT Called");
 
-    _tabController = TabController(length: 2, vsync: this,initialIndex: 0);
+    _tabController = TabController(length: 3, vsync: this,initialIndex: 0);
     _tabController.addListener(_handleTabSelection);
     _tabController.animation!.addListener(_handleTabSelectionInAnimation);
 
@@ -103,7 +104,8 @@ class _MainPageState extends State<MainPage> with SingleTickerProviderStateMixin
             controller: _tabController,
             children: <Widget>[
               getHome(),
-              getUserProfile()
+              getObjectDetectpr(),
+              getUserProfile(),
             ],
           ),
         ),
@@ -121,6 +123,12 @@ class _MainPageState extends State<MainPage> with SingleTickerProviderStateMixin
     profileWidget ??= const UserProfileScreen();
 
     return profileWidget!;
+  }
+
+  Widget getObjectDetectpr() {
+    objectWidget ??=  ObjectDetectorView();
+
+    return objectWidget!;
   }
 
   Widget getBottomBar(UserProvider userProvider) {
@@ -154,7 +162,12 @@ class _MainPageState extends State<MainPage> with SingleTickerProviderStateMixin
               Tab(
                 icon: Icon(Icons.home, size: MySize.size28,),
                 iconMargin: const EdgeInsets.symmetric(horizontal: 0, vertical: 0),
-                text: "Home",
+                text: "Text Detection",
+              ),
+              Tab(
+                icon: Icon(Icons.home, size: MySize.size28,),
+                iconMargin: const EdgeInsets.symmetric(horizontal: 0, vertical: 0),
+                text: "Object Detection",
               ),
               Tab(
                 icon: Icon(Icons.person, size: MySize.size28,),

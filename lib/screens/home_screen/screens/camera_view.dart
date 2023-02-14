@@ -92,7 +92,7 @@ class _CameraViewState extends State<CameraView> {
         title: Text(widget.title),
       ),
       body: _body(),
-      floatingActionButton: _floatingActionButton(),
+      //floatingActionButton: _floatingActionButton(),
      // floatingActionButtonLocation: FloatingActionButtonLocation.,
     );
   }
@@ -204,16 +204,16 @@ class _CameraViewState extends State<CameraView> {
           onPressed: () => _getImage(ImageSource.gallery),
         ),
       ),
-      Padding(
-        padding: EdgeInsets.symmetric(horizontal: 16),
-        child: ElevatedButton(
-          style:ElevatedButton.styleFrom(
-              primary: Styles.primaryColor
-          ),
-          child: Text('Take a picture'),
-          onPressed: () => _getImage(ImageSource.camera),
-        ),
-      ),
+      // Padding(
+      //   padding: EdgeInsets.symmetric(horizontal: 16),
+      //   child: ElevatedButton(
+      //     style:ElevatedButton.styleFrom(
+      //         primary: Styles.primaryColor
+      //     ),
+      //     child: Text('Take a picture'),
+      //     onPressed: () => _getImage(ImageSource.camera),
+      //   ),
+      // ),
       if (_image != null)
         Padding(
           padding: const EdgeInsets.all(16.0),
